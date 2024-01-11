@@ -3,25 +3,40 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground: #334155; /* rgb(51, 65, 85) */
+  --background-end: #fafafa; /* #fafafa */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground: #d1d5db; /* #d1d5db rgb(209, 213, 219) */
+    --background-end: #000000; /* rgb(0, 0, 0) */
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--background-end);
+  color: var(--foreground);
+}
+
+/* Custom Styles */
+
+/* Hide scrollbar */
+.no-srl-bar::-webkit-scrollbar {
+  display: none;
+  /* for Chrome, Safari and Opera */
+}
+.no-srl-bar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.lazy-b {
+  animation: lazy-b 0.4s ease-in 0.1s reverse backwards;
+}
+@keyframes lazy-b {
+  100% {
+    opacity: 0;
+    transform: translate(0, 50px);
+  }
 }
